@@ -1,4 +1,4 @@
-# ImageClassification_MNIST
+# Handwritten Digit Recognizer
 
 This is meant to be a small exploration in the process of creating a CNN. It uses the well known MNIST dataset. 
 
