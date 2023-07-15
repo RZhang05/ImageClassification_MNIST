@@ -1,6 +1,11 @@
 # ImageClassification_MNIST
 
-This is meant to be a small exploration in the process of creating a CNN. It uses the well known MNIST dataset with initial GUI and starting code from https://data-flair.training/blogs/python-deep-learning-project-handwritten-digit-recognition/.
+This is meant to be a small exploration in the process of creating a CNN. It uses the well known MNIST dataset. 
+
+Learning goals:
+- purpose of each layer in a CNN
+- various approaches for model configuration
+- improving classification model accuracy
 
 ## Attempt 1
 
@@ -28,3 +33,6 @@ This is meant to be a small exploration in the process of creating a CNN. It use
 ![Screenshot1](images/ex1.png)
 ![Screenshot2](images/ex2.png)
 ![Screenshot3](images/ex3.png)
+
+# Credits
+Starting code and initial GUI from https://data-flair.training/blogs/python-deep-learning-project-handwritten-digit-recognition/.
