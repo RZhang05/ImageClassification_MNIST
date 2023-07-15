@@ -10,12 +10,12 @@ Learning goals:
 ## Attempt 1
 
 - Initial GUI consistently predicts 2 for all inputs.
-- Model barely achieved 80% accuracy
+- Model barely achieved 80% accuracy.
 
 ## Attempt 2
 
 - Update GUI to have better image cropping and flip colours so writing is done in white instead of black.
-- Model achieves 90.81% accuracy
+- Model achieves 90.81% accuracy.
 - GUI still predicts wrong somewhat frequently but is more accurate.
 
 ![v2 results](images/model_v2_results.png)
