@@ -1,9 +1,9 @@
 import keras
 from keras.datasets import mnist
 from keras.models import Sequential
-from keras.layers import Dense, Dropout, Flatten
+from keras.layers import Dense, Flatten
 from keras.layers import Conv2D, MaxPooling2D
-from keras import backend as K
+from keras.optimizers import SGD
 from matplotlib import pyplot as plt
 
 def load_dataset():
@@ -47,12 +47,22 @@ def define_model():
     input_shape = (28, 28, 1)
     num_classes = 10
     model = Sequential()
+    # convolution is a linear operation, at a basic level filtering for interesting features through multiplication
     model.add(Conv2D(32, kernel_size=(3, 3),activation='relu',kernel_initializer='he_uniform',input_shape=input_shape))
+    # max pooling takes the maximum in a 2x2 grid with strides of 2, effectively down sampling by factor of 2
     model.add(MaxPooling2D(pool_size=(2, 2)))
+    # more feature extraction layers
+    model.add(Conv2D(64, (3, 3), activation='relu', kernel_initializer='he_uniform'))
+    model.add(Conv2D(64, (3, 3), activation='relu', kernel_initializer='he_uniform'))
+    model.add(MaxPooling2D((2, 2)))
     model.add(Flatten())
+    # dense layer to interpret features
     model.add(Dense(256, activation='relu',kernel_initializer='he_uniform'))
+    # softmax results in a probability distribution of size num_classes
     model.add(Dense(num_classes, activation='softmax'))
-    model.compile(loss=keras.losses.categorical_crossentropy,optimizer=keras.optimizers.Adadelta(),metrics=['accuracy'])
+    # gradient descent
+    opt = SGD(learning_rate=0.01, momentum=0.9)
+    model.compile(loss=keras.losses.categorical_crossentropy,optimizer=opt,metrics=['accuracy'])
     return model
 
 def evaluate_model(x_train, x_test, y_train, y_test, model):

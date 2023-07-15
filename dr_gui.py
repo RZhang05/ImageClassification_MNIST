@@ -2,7 +2,6 @@ from keras.models import load_model
 from keras.preprocessing.image import img_to_array
 from tkinter import *
 import tkinter as tk
-import win32gui
 from PIL import ImageGrab, Image
 import numpy as np
 from matplotlib import pyplot as plt
@@ -12,10 +11,6 @@ def predict_digit(img):
     img = img.resize((28,28))
     #convert rgb to grayscale
     img = img.convert('L')
-
-    # plot the digit we are predicting
-    plt.imshow(img, cmap=plt.get_cmap('gray'))
-    plt.show()
 
     img = img_to_array(img)
     #reshaping to support our model input and normalizing
